@@ -30,14 +30,12 @@ const techStacks = ref<TechStack[]>([
 ])
 </script>
 <template>
-  <div
-    class="text-[#f0f0f0] font-['Satoshi'] flex flex-col pt-20 items-center gap-5 mx-10 max-h-screen"
-  >
+  <div class="text-[#f0f0f0] font-inter flex flex-col pt-20 items-center gap-5 mx-10 max-h-screen">
     <div class="space-y-2">
       <span class="text-6xl">Kharl Aquino</span>
       <p class="text-3xl text-gray-400 text-center">Frontend Developer</p>
     </div>
-    <p class="text-xs text-justify text-gray-300 sm:mx-25 md:mx-50 xl:w-110">
+    <p class="text-xs text-justify text-gray-300 sm:mx-25 md:mx-50 xl:w-110 mt-10">
       Crafting clean, responsive interfaces with a focus on usability and simplicity. Experienced in
       building modern web applications using Vue.js, Tailwind CSS, and API integration to create
       seamless user experiences.
