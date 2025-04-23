@@ -42,9 +42,9 @@ onMounted(() => {
 
     <!-- Main Content Slide-In -->
     <Transition name="slide" mode="out-in">
-      <main v-if="!loading" key="main" class="bg-black min-h-screen pt-5">
+      <main v-if="!loading" key="main" class="bg-[#1A2421] min-h-screen pt-5">
         <header>
-          <nav class="bg-[#222222] text-white h-[3rem] w-60 mx-auto rounded-xl">
+          <nav class="bg-[#121815] text-white h-[3rem] w-60 mx-auto rounded-xl">
             <ul class="flex justify-evenly items-center h-full">
               <li
                 v-for="(item, index) in navItems"
@@ -52,14 +52,14 @@ onMounted(() => {
                 @click="!item.isExternal && (selectedButton = item.name)"
                 :class="[
                   selectedButton === item.name
-                    ? 'bg-white text-black rounded-xl'
-                    : 'text-gray-400 hover:text-white',
+                    ? 'bg-[#a28b71] text-[#F0F0F0] rounded-xl'
+                    : 'text-[#D5C7B2] hover:text-[#E6DCCB]',
                 ]"
               >
                 <RouterLink
                   v-if="!item.isExternal"
                   :to="item.path"
-                  class="flex items-center justify-center hover:bg-gray-300 hover:text-[#222222] rounded-xl p-3 transition duration-200 cursor-pointer"
+                  class="flex items-center justify-center hover:bg-[#E6DCCB] hover:text-white rounded-xl p-3 transition duration-200 cursor-pointer"
                 >
                   <component :is="item.icon" class="w-6 h-6" />
                 </RouterLink>
@@ -68,7 +68,7 @@ onMounted(() => {
                   :href="item.path"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex items-center justify-center hover:bg-gray-300 hover:text-[#222222] rounded-xl p-3 transition duration-200 cursor-pointer"
+                  class="flex items-center justify-center hover:bg-[#E6DCCB] hover:text-white rounded-xl p-3 transition duration-200 cursor-pointer"
                 >
                   <component :is="item.icon" class="w-6 h-6" />
                 </a>

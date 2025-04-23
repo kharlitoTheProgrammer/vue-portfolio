@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        inter: ['Inter', 'sans-serif'],
+        special: ['Special Gothic Expanded One', 'sans-serif'],
       },
     },
   },
