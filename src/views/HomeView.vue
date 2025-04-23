@@ -63,7 +63,7 @@ const resumeLink = computed(() => {
 })
 
 const downloadName = computed(() => {
-  return isSafariOnIOS() ? 'Resume_Kharl_Aquino.zip' : 'Resume_Kharl_Aquino.pdf'
+  return isSafariOnIOS() ? 'Kharl_Chris-an_Aquino_Resume.zip' : 'Kharl_Chris-an_Aquino_Resume.pdf'
 })
 </script>
 <template>
