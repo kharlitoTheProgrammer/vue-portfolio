@@ -72,6 +72,7 @@ const toggleHidden = () => {
         <a
           v-if="buttons.action === 'download'"
           href="/Kharl_Chris-an_Aquino_Resume.pdf"
+          download="Resume_Kharl_Aquino.pdf"
           class="bg-[#a28b71] text-white px-6 py-3 rounded-md flex justify-center items-center gap-2 cursor-pointer hover:scale-105 hover:shadow-gray-100 transition-transform duration-300 special-gothic-expanded-one-regular text-sm animate-pulse"
         >
           <component :is="buttons.icon" :size="23" /> {{ buttons.label }}
