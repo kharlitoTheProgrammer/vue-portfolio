@@ -2,7 +2,7 @@
 import { HomeIcon, RectangleStackIcon, UserIcon } from '@heroicons/vue/24/solid'
 import { Linkedin, Github } from 'lucide-vue-next'
 import { onMounted, ref } from 'vue'
-import LoadingScreen from './components/icons/LoadingScreen.vue'
+import LoadingScreen from '@/components/LoadingScreen.vue'
 
 const navItems = ref([
   { name: 'home', icon: HomeIcon, path: '/', isExternal: false },
