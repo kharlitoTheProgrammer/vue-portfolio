@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue/dist/iconify.js'
 import { Download, Phone, Settings, Redo } from 'lucide-vue-next'
-import { computed, ref, type Component } from 'vue'
+import { ref, type Component } from 'vue'
 import {
   Card,
   CardContent,
@@ -50,21 +50,6 @@ const isHidden = ref(true)
 const toggleHidden = () => {
   isHidden.value = false
 }
-
-const isSafariOnIOS = (): boolean => {
-  const ua = navigator.userAgent
-  const isIOS = /iP(ad|hone|od)/.test(ua)
-  const isSafari = /^((?!chrome|android).)*safari/i.test(ua)
-  return isIOS && isSafari
-}
-
-const resumeLink = computed(() => {
-  return isSafariOnIOS() ? '/Kharl_Chris-an_Aquino_Resume.zip' : '/Kharl_Chris-an_Aquino_Resume.pdf'
-})
-
-const downloadName = computed(() => {
-  return isSafariOnIOS() ? 'Kharl_Chris-an_Aquino_Resume.zip' : 'Kharl_Chris-an_Aquino_Resume.pdf'
-})
 </script>
 <template>
   <div class="text-[#f0f0f0] flex flex-col pt-10 items-center gap-5 mx-10 max-h-screen">
@@ -86,8 +71,7 @@ const downloadName = computed(() => {
       <li v-for="(buttons, index) in homeButtons" :key="index">
         <a
           v-if="buttons.action === 'download'"
-          :href="resumeLink"
-          :download="downloadName"
+          href="/Kharl_Chris-an_Aquino_Resume.pdf"
           class="bg-[#a28b71] text-white px-6 py-3 rounded-md flex justify-center items-center gap-2 cursor-pointer hover:scale-105 hover:shadow-gray-100 transition-transform duration-300 special-gothic-expanded-one-regular text-sm animate-pulse"
         >
           <component :is="buttons.icon" :size="23" /> {{ buttons.label }}
