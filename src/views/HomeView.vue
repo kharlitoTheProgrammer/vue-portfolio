@@ -71,7 +71,7 @@ const toggleHidden = () => {
       <li v-for="(buttons, index) in homeButtons" :key="index">
         <a
           v-if="buttons.action === 'download'"
-          href="/Kharl Chris-an Aquino - Resume.pdf"
+          href="/vue-portfolio/Kharl Chris-an Aquino - Resume.pdf"
           download="Resume_Kharl_Aquino.pdf"
           class="bg-[#a28b71] text-white px-6 py-3 rounded-md flex justify-center items-center gap-2 cursor-pointer hover:scale-105 hover:shadow-gray-100 transition-transform duration-300 special-gothic-expanded-one-regular text-sm animate-pulse"
         >
