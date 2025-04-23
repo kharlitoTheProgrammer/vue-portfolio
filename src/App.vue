@@ -4,6 +4,7 @@ import { Linkedin, Github } from 'lucide-vue-next'
 import { onMounted, ref } from 'vue'
 import LoadingScreen from '@/components/LoadingScreen.vue'
 
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
 const navItems = ref([
   { name: 'home', icon: HomeIcon, path: '/', isExternal: false },
   { name: 'projects', icon: RectangleStackIcon, path: '/projects', isExternal: false },
@@ -11,7 +12,9 @@ const navItems = ref([
   {
     name: 'linkedin',
     icon: Linkedin,
-    path: 'https://www.linkedin.com/in/kharl-chris-an-aquino-b6617625b',
+    path: isMobile
+      ? 'linkedin://in/kharl-chris-an-aquino-b6617625b'
+      : 'https://www.linkedin.com/in/kharl-chris-an-aquino-b6617625b',
     isExternal: true,
   },
   {
