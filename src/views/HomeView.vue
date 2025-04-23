@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue/dist/iconify.js'
 import { Download, Phone, Settings, Redo } from 'lucide-vue-next'
-import { ref, type Component } from 'vue'
+import { computed, ref, type Component } from 'vue'
 import {
   Card,
   CardContent,
@@ -45,6 +45,26 @@ const techStacksVersionControl = ref<TechStack[]>([
 // const contactMe = () => {
 //   window.location.href = 'mailto:your.email@example.com'
 // }
+
+const isHidden = ref(true)
+const toggleHidden = () => {
+  isHidden.value = false
+}
+
+const isSafariOnIOS = (): boolean => {
+  const ua = navigator.userAgent
+  const isIOS = /iP(ad|hone|od)/.test(ua)
+  const isSafari = /^((?!chrome|android).)*safari/i.test(ua)
+  return isIOS && isSafari
+}
+
+const resumeLink = computed(() => {
+  return isSafariOnIOS() ? '/Kharl_Chris-an_Aquino_Resume.zip' : '/Kharl_Chris-an_Aquino_Resume.pdf'
+})
+
+const downloadName = computed(() => {
+  return isSafariOnIOS() ? 'Resume_Kharl_Aquino.zip' : 'Resume_Kharl_Aquino.pdf'
+})
 </script>
 <template>
   <div class="text-[#f0f0f0] flex flex-col pt-10 items-center gap-5 mx-10 max-h-screen">
@@ -66,8 +86,8 @@ const techStacksVersionControl = ref<TechStack[]>([
       <li v-for="(buttons, index) in homeButtons" :key="index">
         <a
           v-if="buttons.action === 'download'"
-          href="/Kharl_Chris-an_Aquino_Resume.pdf"
-          download="Resume_Kharl_Aquino.pdf"
+          :href="resumeLink"
+          :download="downloadName"
           class="bg-[#a28b71] text-white px-6 py-3 rounded-md flex justify-center items-center gap-2 cursor-pointer hover:scale-105 hover:shadow-gray-100 transition-transform duration-300 special-gothic-expanded-one-regular text-sm animate-pulse"
         >
           <component :is="buttons.icon" :size="23" /> {{ buttons.label }}
@@ -84,15 +104,16 @@ const techStacksVersionControl = ref<TechStack[]>([
     <div class="mt-10">
       <h2 class="text-3xl flex justify-center items-center gap-4">
         <div class="flex flex-col items-center justify-center relative">
-          <Redo class="animate-pulse absolute bottom-0" />
+          <Redo class="animate-pulse absolute bottom-0" :class="{ hidden: !isHidden }" />
           <span
             id="click"
             class="animate-pulse text-sm absolute top-0 right-0 rotate-[350deg] w-20 font-bold text-center"
+            :class="{ hidden: !isHidden }"
           >
             CLICK ME!
           </span>
         </div>
-        <button class="flex items-center justify-center">
+        <button class="flex items-center justify-center" @click="toggleHidden">
           <Settings
             :size="30"
             class="text-[#A49581] transition-transform duration-300 hover:rotate-180 cursor-pointer"
@@ -100,7 +121,7 @@ const techStacksVersionControl = ref<TechStack[]>([
         </button>
       </h2>
       <div class="flex gap-5">
-        <Card class="bg-[#a28b71] mt-5 border-[#a28b71] hidden">
+        <Card class="bg-[#a28b71] mt-5 border-[#a28b71]" :class="{ hidden: isHidden }">
           <CardContent class="bg-[#a28b71] space-y-2">
             <p class="text-center text-white special-gothic-regular">Frontend</p>
             <div class="flex flex-wrap gap-5 w-100 sm:w-110 justify-center items-center text-white">
@@ -124,7 +145,7 @@ const techStacksVersionControl = ref<TechStack[]>([
           </CardContent>
         </Card>
         <!-- Add circular functionality kapag niclick mag aappear yung tech stack then after nun iikot sya after 10 seconds -->
-        <Card class="bg-[#a28b71] mt-5 border-[#a28b71] hidden">
+        <Card class="bg-[#a28b71] mt-5 border-[#a28b71]" :class="{ hidden: isHidden }">
           <CardContent class="bg-[#a28b71]">
             <div class="flex flex-wrap gap-5 w-100 sm:w-110 justify-center items-center text-white">
               <div
