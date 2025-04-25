@@ -20,9 +20,10 @@ const techStacksFrontend = ref<TechStack[]>([
   { icon: 'logos:html-5', label: 'HTML' },
   { icon: 'logos:css-3', label: 'CSS' },
   { icon: 'logos:javascript', label: 'JavaScript' },
-  { icon: 'logos:vue', label: 'Vue' },
-  { icon: 'logos:react', label: 'React' },
   { icon: 'logos:tailwindcss-icon', label: 'Tailwind CSS' },
+  { icon: 'logos:vue', label: 'Vue' },
+  { icon: 'logos:react', label: 'React (Basic)' },
+  { icon: 'devicon:angular', label: 'Angular (Basic)' },
   { icon: 'logos:typescript-icon', label: 'TypeScript' },
 ])
 const techStacksVersionControl = ref<TechStack[]>([
@@ -32,6 +33,7 @@ const techStacksVersionControl = ref<TechStack[]>([
 const techStackDevTools = ref<DevTools[]>([
   { icon: 'vscode-icons:file-type-vscode', label: 'Visual Studio Code' },
   { icon: 'logos:vitejs', label: 'Vite' },
+  { icon: 'skill-icons:androidstudio-dark', label: 'Android Studio' },
 ])
 const homeButtons = ref<HomeButton[]>([
   { icon: Download, label: 'Download my resume', action: 'download' },
@@ -89,7 +91,7 @@ const showResume = () => {
     <template v-for="(item, index) in homeButtons" :key="index">
       <button
         @click="showResume"
-        class="bg-[#a28b71] text-white px-6 py-3 rounded-md flex justify-center items-center gap-2 cursor-pointer hover:scale-105 hover:shadow-gray-100 transition-transform duration-300 special-gothic-expanded-one-regular text-sm animate-bounce mt-15"
+        class="bg-[#a28b71] text-white px-6 py-3 rounded-md flex justify-center items-center gap-2 cursor-pointer hover:scale-105 hover:shadow-gray-100 transition-transform duration-300 special-gothic-expanded-one-regular text-sm animate-bounce mt-10"
       >
         <component :is="item.icon" />
         View my resume
@@ -139,13 +141,15 @@ const showResume = () => {
             'bg-[#d1c1a1]': currentCard === 'frontend',
             'bg-[#a28b71]': currentCard !== 'frontend',
           }"
-          class="absolute bg-[#a28b71] p-5 rounded-lg shadow-md transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+          class="absolute bg-[#a28b71] p-5 rounded-lg shadow-md transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg special-gothic-regular"
         >
           <div class="grid grid-cols-4 gap-5 mt-5">
             <template v-for="(item, index) in techStacksFrontend" :key="index">
-              <div class="flex flex-col justify-center items-center gap-2">
+              <div
+                class="flex flex-col justify-center items-center gap-2 transition-all hover:-translate-y-2"
+              >
                 <Icon :icon="item.icon" width="30" height="30" />
-                <span>{{ item.label }}</span>
+                <span class="text-center">{{ item.label }}</span>
               </div>
             </template>
           </div>
@@ -162,11 +166,13 @@ const showResume = () => {
             'bg-[#d1c1a1]': currentCard === 'versionControl',
             'bg-[#a28b71]': currentCard !== 'versionControl',
           }"
-          class="absolute bg-[#a28b71] p-5 rounded-lg shadow-md transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+          class="absolute bg-[#a28b71] p-5 rounded-lg shadow-md transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg special-gothic-regular"
         >
           <div class="grid grid-cols-2 gap-5 mt-5">
             <template v-for="(item, index) in techStacksVersionControl" :key="index">
-              <div class="flex flex-col justify-center items-center gap-2">
+              <div
+                class="flex flex-col justify-center items-center gap-2 transition-all hover:-translate-y-2"
+              >
                 <Icon :icon="item.icon" width="30" height="30" />
                 <span>{{ item.label }}</span>
               </div>
@@ -185,11 +191,13 @@ const showResume = () => {
             'bg-[#d1c1a1]': currentCard === 'devTools',
             'bg-[#a28b71]': currentCard !== 'devTools',
           }"
-          class="absolute bg-[#a28b71] p-5 rounded-lg shadow-md transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+          class="absolute bg-[#a28b71] p-5 rounded-lg shadow-md transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg special-gothic-regular"
         >
           <div class="grid grid-cols-2 gap-5 mt-5">
             <template v-for="(item, index) in techStackDevTools" :key="index">
-              <div class="flex flex-col justify-center items-center gap-2">
+              <div
+                class="flex flex-col justify-center items-center gap-2 transition-all hover:-translate-y-2"
+              >
                 <Icon :icon="item.icon" width="30" height="30" />
                 <span>{{ item.label }}</span>
               </div>
