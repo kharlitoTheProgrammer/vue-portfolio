@@ -71,10 +71,10 @@ const showResume = () => {
 <template>
   <div class="text-[#f0f0f0] flex flex-col pt-10 items-center gap-5 mx-10 max-h-screen">
     <div class="space-y-2">
-      <span class="text-5xl sm:text-6xl text-[#D5C7B2] special-gothic-expanded-one-regular"
+      <span class="text-[42px] sm:text-6xl text-[#D5C7B2] special-gothic-expanded-one-regular"
         >Kharl Aquino</span
       >
-      <p class="text-3xl text-[#A49581] text-center font-medium special-gothic-regular">
+      <p class="text-2xl sm:text-3xl text-[#A49581] text-center font-medium special-gothic-regular">
         Frontend Developer
       </p>
     </div>
