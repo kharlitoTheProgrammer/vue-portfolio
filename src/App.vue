@@ -45,7 +45,7 @@ onMounted(() => {
 
     <!-- Main Content Slide-In -->
     <Transition name="slide" mode="out-in">
-      <main v-if="!loading" key="main" class="bg-[#1A2421] min-h-screen pt-5">
+      <main v-if="!loading" key="main" class="bg-[#1A2421] min-h-screen pt-5 overflow-y-auto">
         <header>
           <nav class="bg-[#121815] text-white h-[3rem] w-60 mx-auto rounded-xl">
             <ul class="flex justify-evenly items-center h-full">
